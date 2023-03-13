@@ -6,7 +6,7 @@ def run():
 
 
     #data = "default"
-    data = "2020_2"
+    data = "2022_2b"
 
     subprocess.call(["python", "evaluation/scorer/main.py", data])
 

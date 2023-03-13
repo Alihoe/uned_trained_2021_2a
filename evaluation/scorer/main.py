@@ -80,7 +80,7 @@ if __name__ == '__main__':
     data_path_results = "nlpir01/"
     data_path_gold = "test-input/"
 
-    pred_file = data_path_results+args.data+"_results_1/T2-EN-nlpir01-run_type.txt"
+    pred_file = data_path_results+args.data+"/T2-EN-nlpir01-run_type.txt"
     if args.data == "default":
         pred_file = data_path_results +  "results/T2-EN-nlpir01-run_type.txt"
 
@@ -89,8 +89,9 @@ if __name__ == '__main__':
     #0.3584 filtering out vclaim-sno-the-roommates-death and vclaim-sno-highest-marks
 
     gold_file = data_path_gold+args.data+"_test_input/tweet-vclaim-pairs.qrels"
+    print(gold_file)
     if args.data == "default":
-        gold_file = data_path_gold + "test-input/tweet-vclaim-pairs.qrels"
+        gold_file = data_path_gold + "2021_2a_test_input/tweet-vclaim-pairs.qrels"
 
     if validate_files(pred_file, gold_file):
         maps, mrr, precisions = evaluate(gold_file, pred_file)

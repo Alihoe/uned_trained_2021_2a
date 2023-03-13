@@ -1,6 +1,9 @@
 
 import os
 import sys
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
 
 from tensorflow import keras
 
@@ -394,6 +397,7 @@ if __name__=='__main__':
 
     if path.exists(MODEL_PATH):
         trained_model = keras.models.load_model(MODEL_PATH)
+        print("load saved model")
     else:
         model = get_ffnn_model(input_length, 1000, activation="elu", optimizer="adam", verbose=0)
         trained_model, history_dict = fit_model(model, x_train, y_train, epochs=50, batch_size=128, verbose=0)
@@ -410,5 +414,7 @@ if __name__=='__main__':
         print("Submission predictions format OK")
     else:
         print("Submission predictions format ERROR")
+
+
 
 
